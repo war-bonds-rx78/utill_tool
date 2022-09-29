@@ -1,3 +1,4 @@
+from datetime import datetime
 from jinja2 import Environment, FileSystemLoader
 
 # テンプレート読み込み
@@ -12,4 +13,10 @@ params = {"name": "田中",
 
 # レンダリングして出力
 rendered_s = tmpl.render(params)
-print(rendered_s)
+# print(rendered_s)
+# ファイルを出力
+d = datetime.now()
+d_str = d.strftime("%Y%m%d%H%M%S")
+file_name = "sample_" + d_str + ".json"
+with open("./output/" + file_name, "w", encoding="utf-8") as f:
+    f.write(rendered_s)
