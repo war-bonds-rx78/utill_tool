@@ -1,0 +1,3 @@
+{% for item in items -%}
+select {{item.id}},{{item.name}},{{item.age}},{{item.sex}} from test where id = {{item.id}};
+{% endfor %}
